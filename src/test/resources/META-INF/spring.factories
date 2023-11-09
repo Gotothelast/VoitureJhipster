@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = fr.\
+    it_akademy_voiturejhipster.config.\
+    SqlTestContainersSpringContextCustomizerFactory
