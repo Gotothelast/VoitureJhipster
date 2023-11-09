@@ -17,12 +17,21 @@ entity Option {
 	priceOption Integer
 }
 
+entity Agence {
+	nameAgence String
+	adressAgence String
+	telAgence Long
+}
 relationship OneToOne {
 	Car{mechanic} to Mechanic
 }
 
 relationship OneToMany {
 	Car{options} to Option
+}
+
+relationship OneToMany {
+Agence{cars} to Car
 }
 
 dto Car, Mechanic, Option with mapstruct
