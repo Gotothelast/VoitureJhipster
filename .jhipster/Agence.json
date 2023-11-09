@@ -1,0 +1,29 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109153205",
+  "entityTableName": "agence",
+  "fields": [
+    {
+      "fieldName": "nameAgence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adressAgence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telAgence",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Agence",
+  "relationships": [
+    {
+      "otherEntityName": "car",
+      "relationshipName": "cars",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
