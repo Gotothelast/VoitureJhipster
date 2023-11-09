@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109153405",
+  "dto": "mapstruct",
+  "entityTableName": "option",
+  "fields": [
+    {
+      "fieldName": "nameOption",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "priceOption",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Option",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109153205",
+  "dto": "mapstruct",
+  "entityTableName": "car",
+  "fields": [
+    {
+      "fieldName": "carName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carModel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carReference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "carPrice",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Car",
+  "relationships": [
+    {
+      "otherEntityName": "mechanic",
+      "relationshipName": "mechanic",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "option",
+      "relationshipName": "options",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109153305",
+  "dto": "mapstruct",
+  "entityTableName": "mechanic",
+  "fields": [
+    {
+      "fieldName": "motor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "power",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "km",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Mechanic",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
