@@ -1,0 +1,29 @@
+entity Car {
+	carName String
+	carModel String
+	carReference String
+	carYear Integer
+	carPrice Integer
+}
+
+entity Mechanic {
+	motor String
+	power Integer
+	km Integer
+}
+
+entity Option {
+	nameOption String
+	priceOption Integer
+}
+
+relationship OneToOne {
+	Car{mechanic} to Mechanic
+}
+
+relationship OneToMany {
+	Car{options} to Option
+}
+
+dto Car, Mechanic, Option with mapstruct
+service Car, Mechanic, Option with serviceImpl
