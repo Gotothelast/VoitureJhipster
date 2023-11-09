@@ -48,6 +48,10 @@ public class CacheConfiguration {
             createCache(cm, fr.it_akademy_voiturejhipster.domain.User.class.getName());
             createCache(cm, fr.it_akademy_voiturejhipster.domain.Authority.class.getName());
             createCache(cm, fr.it_akademy_voiturejhipster.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Car.class.getName());
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Car.class.getName() + ".options");
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Mechanic.class.getName());
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Option.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
