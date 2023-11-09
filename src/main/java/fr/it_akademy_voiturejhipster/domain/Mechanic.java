@@ -32,7 +32,7 @@ public class Mechanic implements Serializable {
     @Column(name = "km")
     private Integer km;
 
-    @JsonIgnoreProperties(value = { "mechanic", "options" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "mechanic", "options", "agence" }, allowSetters = true)
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "mechanic")
     private Car car;
 

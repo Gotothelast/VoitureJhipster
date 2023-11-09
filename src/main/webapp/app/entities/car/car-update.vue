@@ -85,6 +85,19 @@
               </option>
             </select>
           </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="t$('voitureJhipsteRApp.car.agence')" for="car-agence"></label>
+            <select class="form-control" id="car-agence" data-cy="agence" name="agence" v-model="car.agence">
+              <option v-bind:value="null"></option>
+              <option
+                v-bind:value="car.agence && agenceOption.id === car.agence.id ? car.agence : agenceOption"
+                v-for="agenceOption in agences"
+                :key="agenceOption.id"
+              >
+                {{ agenceOption.id }}
+              </option>
+            </select>
+          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">

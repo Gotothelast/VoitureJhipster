@@ -4,6 +4,10 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="t$('global.menu.entities.car')"></span>
     </b-dropdown-item>
+    <b-dropdown-item to="/agence">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="t$('global.menu.entities.agence')"></span>
+    </b-dropdown-item>
     <b-dropdown-item to="/mechanic">
       <font-awesome-icon icon="asterisk" />
       <span v-text="t$('global.menu.entities.mechanic')"></span>

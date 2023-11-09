@@ -31,8 +31,8 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-Agence{cars} to Car
+	Agence{cars} to Car
 }
 
-dto Car, Mechanic, Option with mapstruct
-service Car, Mechanic, Option with serviceImpl
+dto Car, Mechanic, Option, Agence with mapstruct
+service Car, Mechanic, Option, Agence with serviceImpl

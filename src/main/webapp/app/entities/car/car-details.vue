@@ -44,6 +44,14 @@
               <router-link :to="{ name: 'MechanicView', params: { mechanicId: car.mechanic.id } }">{{ car.mechanic.id }}</router-link>
             </div>
           </dd>
+          <dt>
+            <span v-text="t$('voitureJhipsteRApp.car.agence')"></span>
+          </dt>
+          <dd>
+            <div v-if="car.agence">
+              <router-link :to="{ name: 'AgenceView', params: { agenceId: car.agence.id } }">{{ car.agence.id }}</router-link>
+            </div>
+          </dd>
         </dl>
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="t$('entity.action.back')"></span>

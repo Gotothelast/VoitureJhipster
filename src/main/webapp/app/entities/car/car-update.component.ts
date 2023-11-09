@@ -9,6 +9,8 @@ import { useAlertService } from '@/shared/alert/alert.service';
 
 import MechanicService from '@/entities/mechanic/mechanic.service';
 import { type IMechanic } from '@/shared/model/mechanic.model';
+import AgenceService from '@/entities/agence/agence.service';
+import { type IAgence } from '@/shared/model/agence.model';
 import { type ICar, Car } from '@/shared/model/car.model';
 
 export default defineComponent({
@@ -23,6 +25,10 @@ export default defineComponent({
     const mechanicService = inject('mechanicService', () => new MechanicService());
 
     const mechanics: Ref<IMechanic[]> = ref([]);
+
+    const agenceService = inject('agenceService', () => new AgenceService());
+
+    const agences: Ref<IAgence[]> = ref([]);
     const isSaving = ref(false);
     const currentLanguage = inject('currentLanguage', () => computed(() => navigator.language ?? 'en'), true);
 
@@ -50,6 +56,11 @@ export default defineComponent({
         .then(res => {
           mechanics.value = res.data;
         });
+      agenceService()
+        .retrieve()
+        .then(res => {
+          agences.value = res.data;
+        });
     };
 
     initRelationships();
@@ -64,6 +75,7 @@ export default defineComponent({
       carPrice: {},
       mechanic: {},
       options: {},
+      agence: {},
     };
     const v$ = useVuelidate(validationRules, car as any);
     v$.value.$validate();
@@ -76,6 +88,7 @@ export default defineComponent({
       isSaving,
       currentLanguage,
       mechanics,
+      agences,
       v$,
       t$,
     };

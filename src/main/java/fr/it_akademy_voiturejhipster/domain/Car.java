@@ -50,6 +50,10 @@ public class Car implements Serializable {
     @JsonIgnoreProperties(value = { "car" }, allowSetters = true)
     private Set<Option> options = new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "cars" }, allowSetters = true)
+    private Agence agence;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -171,6 +175,19 @@ public class Car implements Serializable {
     public Car removeOptions(Option option) {
         this.options.remove(option);
         option.setCar(null);
+        return this;
+    }
+
+    public Agence getAgence() {
+        return this.agence;
+    }
+
+    public void setAgence(Agence agence) {
+        this.agence = agence;
+    }
+
+    public Car agence(Agence agence) {
+        this.setAgence(agence);
         return this;
     }
 

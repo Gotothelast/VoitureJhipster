@@ -30,7 +30,7 @@ public class Option implements Serializable {
     private Integer priceOption;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "mechanic", "options" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "mechanic", "options", "agence" }, allowSetters = true)
     private Car car;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

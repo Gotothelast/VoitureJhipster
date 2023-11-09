@@ -7,6 +7,10 @@ const Car = () => import('@/entities/car/car.vue');
 const CarUpdate = () => import('@/entities/car/car-update.vue');
 const CarDetails = () => import('@/entities/car/car-details.vue');
 
+const Agence = () => import('@/entities/agence/agence.vue');
+const AgenceUpdate = () => import('@/entities/agence/agence-update.vue');
+const AgenceDetails = () => import('@/entities/agence/agence-details.vue');
+
 const Mechanic = () => import('@/entities/mechanic/mechanic.vue');
 const MechanicUpdate = () => import('@/entities/mechanic/mechanic-update.vue');
 const MechanicDetails = () => import('@/entities/mechanic/mechanic-details.vue');
@@ -43,6 +47,30 @@ export default {
       path: 'car/:carId/view',
       name: 'CarView',
       component: CarDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'agence',
+      name: 'Agence',
+      component: Agence,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'agence/new',
+      name: 'AgenceCreate',
+      component: AgenceUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'agence/:agenceId/edit',
+      name: 'AgenceEdit',
+      component: AgenceUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'agence/:agenceId/view',
+      name: 'AgenceView',
+      component: AgenceDetails,
       meta: { authorities: [Authority.USER] },
     },
     {

@@ -1,5 +1,6 @@
 package fr.it_akademy_voiturejhipster.domain;
 
+import static fr.it_akademy_voiturejhipster.domain.AgenceTestSamples.*;
 import static fr.it_akademy_voiturejhipster.domain.CarTestSamples.*;
 import static fr.it_akademy_voiturejhipster.domain.MechanicTestSamples.*;
 import static fr.it_akademy_voiturejhipster.domain.OptionTestSamples.*;
@@ -58,5 +59,17 @@ class CarTest {
         car.setOptions(new HashSet<>());
         assertThat(car.getOptions()).doesNotContain(optionBack);
         assertThat(optionBack.getCar()).isNull();
+    }
+
+    @Test
+    void agenceTest() throws Exception {
+        Car car = getCarRandomSampleGenerator();
+        Agence agenceBack = getAgenceRandomSampleGenerator();
+
+        car.setAgence(agenceBack);
+        assertThat(car.getAgence()).isEqualTo(agenceBack);
+
+        car.agence(null);
+        assertThat(car.getAgence()).isNull();
     }
 }
