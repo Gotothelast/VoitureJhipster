@@ -23,6 +23,8 @@ public class CarDTO implements Serializable {
 
     private MechanicDTO mechanic;
 
+    private AgenceDTO agence;
+
     public Long getId() {
         return id;
     }
@@ -79,6 +81,14 @@ public class CarDTO implements Serializable {
         this.mechanic = mechanic;
     }
 
+    public AgenceDTO getAgence() {
+        return agence;
+    }
+
+    public void setAgence(AgenceDTO agence) {
+        this.agence = agence;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -111,6 +121,7 @@ public class CarDTO implements Serializable {
             ", carYear=" + getCarYear() +
             ", carPrice=" + getCarPrice() +
             ", mechanic=" + getMechanic() +
+            ", agence=" + getAgence() +
             "}";
     }
 }

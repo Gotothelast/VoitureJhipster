@@ -24,7 +24,8 @@
       "carYear": "Car Year",
       "carPrice": "Car Price",
       "mechanic": "Mechanic",
-      "options": "Options"
+      "options": "Options",
+      "agence": "Agence"
     }
   }
 }

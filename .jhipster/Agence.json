@@ -1,6 +1,7 @@
 {
   "applications": "*",
   "changelogDate": "20231109153205",
+  "dto": "mapstruct",
   "entityTableName": "agence",
   "fields": [
     {
@@ -25,5 +26,6 @@
       "relationshipType": "one-to-many"
     }
   ],
-  "searchEngine": "no"
+  "searchEngine": "no",
+  "service": "serviceImpl"
 }

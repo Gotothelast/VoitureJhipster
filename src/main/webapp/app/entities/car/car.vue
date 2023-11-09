@@ -30,6 +30,7 @@
             <th scope="row"><span v-text="t$('voitureJhipsteRApp.car.carYear')"></span></th>
             <th scope="row"><span v-text="t$('voitureJhipsteRApp.car.carPrice')"></span></th>
             <th scope="row"><span v-text="t$('voitureJhipsteRApp.car.mechanic')"></span></th>
+            <th scope="row"><span v-text="t$('voitureJhipsteRApp.car.agence')"></span></th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -46,6 +47,11 @@
             <td>
               <div v-if="car.mechanic">
                 <router-link :to="{ name: 'MechanicView', params: { mechanicId: car.mechanic.id } }">{{ car.mechanic.id }}</router-link>
+              </div>
+            </td>
+            <td>
+              <div v-if="car.agence">
+                <router-link :to="{ name: 'AgenceView', params: { agenceId: car.agence.id } }">{{ car.agence.id }}</router-link>
               </div>
             </td>
             <td class="text-right">

@@ -1,5 +1,6 @@
 import { type IMechanic } from '@/shared/model/mechanic.model';
 import { type IOption } from '@/shared/model/option.model';
+import { type IAgence } from '@/shared/model/agence.model';
 
 export interface ICar {
   id?: number;
@@ -10,6 +11,7 @@ export interface ICar {
   carPrice?: number | null;
   mechanic?: IMechanic | null;
   options?: IOption[] | null;
+  agence?: IAgence | null;
 }
 
 export class Car implements ICar {
@@ -22,5 +24,6 @@ export class Car implements ICar {
     public carPrice?: number | null,
     public mechanic?: IMechanic | null,
     public options?: IOption[] | null,
+    public agence?: IAgence | null,
   ) {}
 }

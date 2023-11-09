@@ -14,5 +14,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="mechanic"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="agence_id"
+                                 baseTableName="car"
+                                 constraintName="fk_car__agence_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agence"
+                                 />
     </changeSet>
 </databaseChangeLog>

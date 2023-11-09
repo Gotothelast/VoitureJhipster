@@ -4,14 +4,11 @@ import { shallowMount, type MountingOptions } from '@vue/test-utils';
 import sinon, { type SinonStubbedInstance } from 'sinon';
 import { type RouteLocation } from 'vue-router';
 
-import CarUpdate from './car-update.vue';
-import CarService from './car.service';
+import AgenceUpdate from './agence-update.vue';
+import AgenceService from './agence.service';
 import AlertService from '@/shared/alert/alert.service';
 
-import MechanicService from '@/entities/mechanic/mechanic.service';
-import AgenceService from '@/entities/agence/agence.service';
-
-type CarUpdateComponentType = InstanceType<typeof CarUpdate>;
+type AgenceUpdateComponentType = InstanceType<typeof AgenceUpdate>;
 
 let route: Partial<RouteLocation>;
 const routerGoMock = vitest.fn();
@@ -21,20 +18,20 @@ vitest.mock('vue-router', () => ({
   useRouter: () => ({ go: routerGoMock }),
 }));
 
-const carSample = { id: 123 };
+const agenceSample = { id: 123 };
 
 describe('Component Tests', () => {
-  let mountOptions: MountingOptions<CarUpdateComponentType>['global'];
+  let mountOptions: MountingOptions<AgenceUpdateComponentType>['global'];
   let alertService: AlertService;
 
-  describe('Car Management Update Component', () => {
-    let comp: CarUpdateComponentType;
-    let carServiceStub: SinonStubbedInstance<CarService>;
+  describe('Agence Management Update Component', () => {
+    let comp: AgenceUpdateComponentType;
+    let agenceServiceStub: SinonStubbedInstance<AgenceService>;
 
     beforeEach(() => {
       route = {};
-      carServiceStub = sinon.createStubInstance<CarService>(CarService);
-      carServiceStub.retrieve.onFirstCall().resolves(Promise.resolve([]));
+      agenceServiceStub = sinon.createStubInstance<AgenceService>(AgenceService);
+      agenceServiceStub.retrieve.onFirstCall().resolves(Promise.resolve([]));
 
       alertService = new AlertService({
         i18n: { t: vitest.fn() } as any,
@@ -53,15 +50,7 @@ describe('Component Tests', () => {
         },
         provide: {
           alertService,
-          carService: () => carServiceStub,
-          mechanicService: () =>
-            sinon.createStubInstance<MechanicService>(MechanicService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
-          agenceService: () =>
-            sinon.createStubInstance<AgenceService>(AgenceService, {
-              retrieve: sinon.stub().resolves({}),
-            } as any),
+          agenceService: () => agenceServiceStub,
         },
       };
     });
@@ -73,34 +62,34 @@ describe('Component Tests', () => {
     describe('save', () => {
       it('Should call update service on save for existing entity', async () => {
         // GIVEN
-        const wrapper = shallowMount(CarUpdate, { global: mountOptions });
+        const wrapper = shallowMount(AgenceUpdate, { global: mountOptions });
         comp = wrapper.vm;
-        comp.car = carSample;
-        carServiceStub.update.resolves(carSample);
+        comp.agence = agenceSample;
+        agenceServiceStub.update.resolves(agenceSample);
 
         // WHEN
         comp.save();
         await comp.$nextTick();
 
         // THEN
-        expect(carServiceStub.update.calledWith(carSample)).toBeTruthy();
+        expect(agenceServiceStub.update.calledWith(agenceSample)).toBeTruthy();
         expect(comp.isSaving).toEqual(false);
       });
 
       it('Should call create service on save for new entity', async () => {
         // GIVEN
         const entity = {};
-        carServiceStub.create.resolves(entity);
-        const wrapper = shallowMount(CarUpdate, { global: mountOptions });
+        agenceServiceStub.create.resolves(entity);
+        const wrapper = shallowMount(AgenceUpdate, { global: mountOptions });
         comp = wrapper.vm;
-        comp.car = entity;
+        comp.agence = entity;
 
         // WHEN
         comp.save();
         await comp.$nextTick();
 
         // THEN
-        expect(carServiceStub.create.calledWith(entity)).toBeTruthy();
+        expect(agenceServiceStub.create.calledWith(entity)).toBeTruthy();
         expect(comp.isSaving).toEqual(false);
       });
     });
@@ -108,28 +97,28 @@ describe('Component Tests', () => {
     describe('Before route enter', () => {
       it('Should retrieve data', async () => {
         // GIVEN
-        carServiceStub.find.resolves(carSample);
-        carServiceStub.retrieve.resolves([carSample]);
+        agenceServiceStub.find.resolves(agenceSample);
+        agenceServiceStub.retrieve.resolves([agenceSample]);
 
         // WHEN
         route = {
           params: {
-            carId: '' + carSample.id,
+            agenceId: '' + agenceSample.id,
           },
         };
-        const wrapper = shallowMount(CarUpdate, { global: mountOptions });
+        const wrapper = shallowMount(AgenceUpdate, { global: mountOptions });
         comp = wrapper.vm;
         await comp.$nextTick();
 
         // THEN
-        expect(comp.car).toMatchObject(carSample);
+        expect(comp.agence).toMatchObject(agenceSample);
       });
     });
 
     describe('Previous state', () => {
       it('Should go previous state', async () => {
-        carServiceStub.find.resolves(carSample);
-        const wrapper = shallowMount(CarUpdate, { global: mountOptions });
+        agenceServiceStub.find.resolves(agenceSample);
+        const wrapper = shallowMount(AgenceUpdate, { global: mountOptions });
         comp = wrapper.vm;
         await comp.$nextTick();
 

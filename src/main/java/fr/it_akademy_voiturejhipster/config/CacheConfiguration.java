@@ -52,6 +52,8 @@ public class CacheConfiguration {
             createCache(cm, fr.it_akademy_voiturejhipster.domain.Car.class.getName() + ".options");
             createCache(cm, fr.it_akademy_voiturejhipster.domain.Mechanic.class.getName());
             createCache(cm, fr.it_akademy_voiturejhipster.domain.Option.class.getName());
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Agence.class.getName());
+            createCache(cm, fr.it_akademy_voiturejhipster.domain.Agence.class.getName() + ".cars");
             // jhipster-needle-ehcache-add-entry
         };
     }
